@@ -1,0 +1,9 @@
+django
+djangorestframework
+python-decouple
+markdown
+uritemplate
+PyYAML
+Pygments
+drf-yasg
+pytest-django
