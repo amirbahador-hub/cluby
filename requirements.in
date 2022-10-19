@@ -7,3 +7,4 @@ PyYAML
 Pygments
 drf-yasg
 pytest-django
+psycopg2
