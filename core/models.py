@@ -1,5 +1,5 @@
 from django.db import models
-
+from decouple import config
 
 class Benefit(models.Model):
     venueid = models.ForeignKey('Venue', models.DO_NOTHING, db_column='venueId')  # Field name made lowercase.
@@ -7,7 +7,7 @@ class Benefit(models.Model):
     recurrence = models.TextField()
 
     class Meta:
-        managed = False
+        managed = config("DB_MANAGED", False, cast=bool)
         db_table = 'benefit'
 
 
@@ -17,7 +17,7 @@ class BenefitUsage(models.Model):
     usagetimestamp = models.DateTimeField(db_column='usageTimestamp')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = config("DB_MANAGED", False, cast=bool)
         db_table = 'benefit_usage'
 
 
@@ -25,7 +25,7 @@ class Person(models.Model):
     name = models.TextField()
 
     class Meta:
-        managed = False
+        managed = config("DB_MANAGED", False, cast=bool)
         db_table = 'person'
 
 
@@ -33,5 +33,5 @@ class Venue(models.Model):
     name = models.TextField()
 
     class Meta:
-        managed = False
+        managed = config("DB_MANAGED", False, cast=bool)
         db_table = 'venue'

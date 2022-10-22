@@ -7,4 +7,6 @@ PyYAML
 Pygments
 drf-yasg
 pytest-django
+faker
+pytest-factoryboy
 psycopg2
