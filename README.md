@@ -1,6 +1,8 @@
 # cluby
 https://cluby.com/ assessment
 
+![Tests](https://github.com/amirbahador-hub/cluby/blob/main/.github/workflows/tests.yml/badge.svg)
+
 ## Setup
 
 create .env file in config/.env
