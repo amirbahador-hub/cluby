@@ -1,7 +1,6 @@
 from django.urls import path
-from .views.populars import PopularBenefits
-from .views.availables import AvailableBenefits
-from .views.inactives import BenefitsInactivity
+from .apis import PopularBenefits, AvailableBenefits, BenefitsInactivity
+
 
 app_name = "core"
 urlpatterns = [

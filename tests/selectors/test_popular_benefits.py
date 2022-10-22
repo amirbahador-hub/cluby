@@ -1,7 +1,7 @@
 import pytest
 
 from core.models import Benefit
-from core.selectors import popular_benefits
+from core.selectors.populars import popular_benefits
 
 from django.test import Client
 from django.urls import reverse

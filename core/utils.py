@@ -1,9 +1,8 @@
 from django.utils import timezone
-from django.db.models import QuerySet, Count, Q, Prefetch
 from datetime import timedelta, datetime
 from django.utils import timezone
 from enum import Enum, auto
-from core.models import BenefitUsage
+from core.selectors.inactives import inactivity_periods
 
 
 class Action(Enum):
@@ -16,22 +15,6 @@ class Recurrence(Enum):
     WEEK = "week"
     MONTH = "month"
 
-
-def inactivity_periods(duration: int, usage: QuerySet[BenefitUsage]):
-    inactive_time = list()
-    pointer_time = datetime.now()
-    for bu in usage:
-        usage_timestamp = bu.usagetimestamp
-        if usage_timestamp < pointer_time - timedelta(days=duration):
-            inactive_time.append(
-                {
-                    "startTime": pointer_time.isoformat(" "),
-                    "pointer_time": usage_timestamp.isoformat(" "),
-                }
-            )
-        pointer_time = bu.usagetimestamp
-
-    return inactive_time
 
 
 def expire_benefit_lock(

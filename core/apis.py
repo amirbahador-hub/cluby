@@ -2,7 +2,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import serializers
 from core.models import Benefit, Venue
-from core.selectors import popular_benefits
+from core.selectors.populars import popular_benefits
+from core.selectors.inactives import benefits_inactivity_periods
+from core.selectors.availables import available_benefits
 from rest_framework import status
 
 
