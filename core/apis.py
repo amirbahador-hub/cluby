@@ -6,6 +6,8 @@ from core.selectors.populars import popular_benefits
 from core.selectors.inactives import benefits_inactivity_periods
 from core.selectors.availables import available_benefits
 from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 
 class BenefitsInactivity(APIView):
@@ -17,6 +19,7 @@ class BenefitsInactivity(APIView):
 
 
 class PopularBenefits(APIView):
+
     class BenefitSerializer(serializers.ModelSerializer):
         benefitId = serializers.IntegerField(source="id")
         usageCount = serializers.SerializerMethodField("get_usageCount")
@@ -71,8 +74,11 @@ class AvailableBenefits(APIView):
                 "recurrence",
             )
 
+    @swagger_auto_schema(request_body=InputSerializer)
     def post(self, request):
         """
+        return available benefits 
+        
         ## valid request:
             {
                 "personId": 1,
