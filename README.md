@@ -1,7 +1,8 @@
 # cluby
+![Tests](https://github.com/amirbahador-hub/cluby/actions/workflows/tests.yml/badge.svg)
+
 https://cluby.com/ assessment
 
-![Tests](https://github.com/amirbahador-hub/cluby/actions/workflows/tests.yml/badge.svg)
 
 ## Setup
 
